@@ -61,7 +61,7 @@ const Scene = () => {
           <>
             <SphereButton 
               initialArgs={[1, 32, 32]} 
-              position={[8, 0, -7]}  
+              position={[8, -2, -7]}  
               onClick={() => { 
                 changeTexture(1); // Update index and texture
               }} 
@@ -69,7 +69,7 @@ const Scene = () => {
 
             <SphereButton 
               initialArgs={[1, 32, 32]} 
-              position={[2, 0, -10]} 
+              position={[2, -3, -10]} 
               onClick={() => { 
                 changeTexture(2); 
               }} 
@@ -77,7 +77,7 @@ const Scene = () => {
 
             <SphereButton 
               initialArgs={[1, 32, 32]} 
-              position={[-2, 0, -9]} 
+              position={[-2, -4, -9]} 
               onClick={() => { 
                 changeTexture(3); 
               }} 
@@ -85,7 +85,7 @@ const Scene = () => {
 
             <SphereButton 
               initialArgs={[1, 32, 32]} 
-              position={[-7, 0, -5]} 
+              position={[-7, -4, -5]} 
               onClick={() => { 
                 changeTexture(4); 
               }} 
@@ -94,43 +94,136 @@ const Scene = () => {
         );
       case 1:
         return (
+          <>
           <SphereButton
             initialArgs={[1.5, 32, 32]}
-            position={[-4, 0, -8]}
+            position={[-4, -2, -8]}
             onClick={() => {
               changeTexture(0); // Cycle back to index 0
             }}
           />
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[4, -3, -8]}
+            onClick={() => {
+              changeTexture(2); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[1, -3, -10]}
+            onClick={() => {
+              changeTexture(2); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[-1, -2, -10]}
+            onClick={() => {
+              changeTexture(3); // Cycle back to index 0
+            }}
+          />
+          </>
         );
       case 2:
         return (
+          <>
           <SphereButton
             initialArgs={[2, 32, 32]}
-            position={[6, 0, -3]}
+            position={[7, -2, -5]}
             onClick={() => {
               changeTexture(0); // Cycle back to index 0
             }}
           />
+          <SphereButton
+            initialArgs={[2, 32, 32]}
+            position={[-7, -3, -2]}
+            onClick={() => {
+              changeTexture(1); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[2, 32, 32]}
+            position={[7, -4, 2]}
+            onClick={() => {
+              changeTexture(3); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[2, 32, 32]}
+            position={[9, -3, 0]}
+            onClick={() => {
+              changeTexture(4); // Cycle back to index 0
+            }}
+          />
+          </>
         );
       case 3:
         return (
+          <>
           <SphereButton
             initialArgs={[1.5, 32, 32]}
-            position={[3, 0, -4]}
+            position={[3, -2, -4]}
             onClick={() => {
               changeTexture(0); // Cycle back to index 0
             }}
           />
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[6, -3, 2]}
+            onClick={() => {
+              changeTexture(4); // Cycle back to index 0
+            }}
+            />
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[-4, -3, 4]}
+            onClick={() => {
+              changeTexture(2); // Cycle back to index 0
+            }}
+            />  
+          <SphereButton
+            initialArgs={[1.5, 32, 32]}
+            position={[-10, -3, -1]}
+            onClick={() => {
+              changeTexture(1); // Cycle back to index 0
+            }}
+            />
+          </>
+          
         );
       case 4:
         return (
+          <>
           <SphereButton
             initialArgs={[2.5, 32, 32]}
-            position={[-2, 0, -4]}
+            position={[-2, -2, -4]}
             onClick={() => {
               changeTexture(0); // Cycle back to index 0
             }}
           />
+          <SphereButton
+            initialArgs={[2.5, 32, 32]}
+            position={[-10, -2, 1]}
+            onClick={() => {
+              changeTexture(1); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[2.5, 32, 32]}
+            position={[-7, -3, 6]}
+            onClick={() => {
+              changeTexture(2); // Cycle back to index 0
+            }}
+          />
+          <SphereButton
+            initialArgs={[2.5, 32, 32]}
+            position={[-4, -4, 6]}
+            onClick={() => {
+              changeTexture(3); // Cycle back to index 0
+            }}
+          />
+          </>
         );
       default:
         return null;
