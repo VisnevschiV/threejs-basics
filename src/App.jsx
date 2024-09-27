@@ -5,7 +5,37 @@ import { OrbitControls } from "@react-three/drei";
 import { useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const Sphere = ({ position, args, textureUrl }) => {
+
+const graphData = [
+  {
+    id: 0,
+    position: [8, -2, -7],
+    connections: [1, 2],
+    textureUrl: "../bookNr1.jpg",
+  },
+  {
+    id: 1,
+    position: [5, 0, 0],
+    connections: [0, 2],
+    textureUrl: "../bookNr1.jpg",
+  },
+  {
+    id: 2,
+    position: [3, 4, 0],
+    connections: [0, 1],
+    textureUrl: "../bookNr1.jpg",
+  },
+  {
+    id: 3,
+    position: [-4, 3, 0],
+    connections: [0],
+    textureUrl: "../bookNr1.jpg",
+  },
+  // Add more nodes as needed
+];
+
+
+const Skybox = ({ position, args, textureUrl }) => {
   const ref = useRef();
   const texture = useLoader(THREE.TextureLoader, textureUrl);
 
@@ -54,6 +84,21 @@ const Scene = () => {
     setTextureUrl(skyboxTextures[newIndex]); // Change texture based on index
   };
 
+  const renderFromList = () => {
+    return (
+      <>
+        {graphData.map((item, i) => (
+            <SphereButton 
+              initialArgs={[1, 32, 32]} 
+              position={item.position}  
+              onClick={() => { 
+                changeTexture(1); // Update index and texture
+              }} 
+            />
+        ))}
+      </>
+    );
+  };
   const renderSphereButtons = () => {
     switch (index) {
       case 0:
@@ -233,9 +278,9 @@ const Scene = () => {
   return (
     <>
       <ambientLight intensity={1} />
-      <Sphere args={[10, 1000, 50, 5]} position={[0, 0, 0]} textureUrl={textureUrl} />
-      {renderSphereButtons()} {/* Re-render buttons based on index */}
-      <OrbitControls enableZoom={false}  rotateSpeed={-0.2} />
+      <Skybox args={[10, 1000, 50, 5]} position={[0, 0, 0]} textureUrl={textureUrl} />
+      {renderFromList()} {/* Re-render buttons based on index */}
+      <OrbitControls enableZoom={true}  rotateSpeed={-0.2} />
     </>
   );
 };
